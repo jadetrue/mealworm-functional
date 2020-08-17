@@ -1,0 +1,32 @@
+$base-spacing: 5px;
+
+$primary-color: rgb(70, 50, 111);
+$secondary-color: rgb(236, 69, 102);
+$tertiary-color: rgb(141, 140, 140);
+
+$primary-color-transparent: rgba(70, 50, 111, 0.85);
+$secondary-color-transparent: rgba(236, 69, 102, 0.85);
+$tertiary-color-transparent: rgba(141, 140, 140, 0.85);
+
+$primary-border: solid 2px $primary-color;
+$secondary-border: solid 2px $secondary-color;
+
+// $primary-tint: rgb(97, 69, 151);
+// $secondary-tint: rgb(230, 105, 130);
+// $tertiary-tint: rgb(192, 191, 191);
+
+// $primary-color: white;
+// $secondary-color: rgb(187, 186, 186);
+
+$primary-text: $secondary-color;
+$secondary-text: gray;
+$tertiary-text: rgb(199, 197, 197);
+
+$card-shadowing: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
+$card-hover-shadowing: 0 14px 28px rgba(0, 0, 0, 0.27),
+  0 10px 10px rgba(0, 0, 0, 0.3);
+
+$navbar-height-mb: 60px;
+$navbar-height: 75px;
+
+$border-rounding: 5px;

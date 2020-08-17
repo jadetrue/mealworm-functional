@@ -1,0 +1,66 @@
+@import "../../variables.scss";
+
+.cardFront {
+  max-height: 400px;
+  max-width: 275px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
+  border: solid 2px rgb(70, 50, 111);
+  backface-visibility: hidden;
+  background-color: white;
+  margin: 20px;
+
+  img {
+    height: 60%;
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .recipeDetails {
+    height: 40%;
+    width: 100%;
+    padding: $base-spacing * 4;
+    border-top: none;
+    border-radius: 0 2px 2px 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: $base-spacing * 2;
+
+    h2 {
+      color: $primary-color;
+      font-size: 1.3rem;
+      margin-bottom: $base-spacing;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    p {
+      color: $secondary-text;
+      margin-bottom: $base-spacing * 2;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+
+      a {
+        font-size: 1.2em;
+        text-decoration: none;
+        color: $secondary-text;
+
+        &:hover {
+          color: blue;
+        }
+      }
+
+      .youtube {
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}

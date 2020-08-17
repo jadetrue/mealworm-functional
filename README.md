@@ -1,17 +1,12 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Create a static CardFront component
+- Create both the NavBar and CardBack components to match the screenshot below
+- Use the first recipe's details from data/recipes.js to populate the CardBack component
 
-## STEPS
+## Solution screenshot
 
-- Clear out all of the beginning React App materials (jsx, logos etc.)
-- Create a components/CardFront directory containing .jsx .module.scss index.js and .module.scss
-- Create the markup in the .jsx file
-- Import & export from the index.js
-- Import and use the CardFront in the App.jsx
-- Style the CardFront
-- Change the favicon and title in the /public directory
+![solution](./src/assets/solution.png)
 
-## Challenge branch
+## Completed branch
 
-components-challenge
+props-code-along
