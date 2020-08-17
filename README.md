@@ -1,12 +1,14 @@
-# CHALLENGE NOTES
+# CODE ALONG NOTES
 
-- Create both the NavBar and CardBack components to match the screenshot below
-- Use the first recipe's details from data/recipes.js to populate the CardBack component
+Edit the CardFront component so that it takes in a recipe object as props.
 
-## Solution screenshot
+## STEPS
 
-![solution](./src/assets/solution.png)
+- Edit the CardFront component so that it takes in a recipe Object as props
+- Destructure the recipe object in the render method
+- Replace hard coded CardFont data with recipe info passed in as props
+- Pass recipes[1] in as props from App.jsx
 
-## Completed branch
+## Challenge branch
 
-props-code-along
+4-props-ch

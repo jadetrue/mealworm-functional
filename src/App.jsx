@@ -1,10 +1,22 @@
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.module.scss";
 import CardFront from "./components/CardFront";
+import CardBack from "./components/CardBack";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   render() {
-    return <CardFront />;
+    return (
+      <>
+        <section className={styles.nav}>
+          <NavBar />
+        </section>
+        <section className={styles.content}>
+          <CardFront />
+          <CardBack />
+        </section>
+      </>
+    );
   }
 }
 

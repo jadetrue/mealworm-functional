@@ -26,7 +26,19 @@ $card-shadowing: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
 $card-hover-shadowing: 0 14px 28px rgba(0, 0, 0, 0.27),
   0 10px 10px rgba(0, 0, 0, 0.3);
 
-$navbar-height-mb: 60px;
-$navbar-height: 75px;
+$NavBar-height-mb: 60px;
+$NavBar-height: 75px;
 
 $border-rounding: 5px;
+
+%card {
+  max-height: 400px;
+  max-width: 275px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
+  border: solid 2px rgb(70, 50, 111);
+  backface-visibility: hidden;
+  background-color: white;
+  margin: 20px;
+}

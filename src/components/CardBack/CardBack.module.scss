@@ -1,0 +1,49 @@
+@import "../../variables.scss";
+
+.cardBack {
+  @extend %card;
+  padding: $base-spacing * 4;
+  position: relative;
+
+  .heart {
+    position: absolute;
+    top: $base-spacing * 4;
+    right: $base-spacing * 4;
+    color: $primary-color;
+    font-size: 1.3rem;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  h2,
+  h3 {
+    color: $primary-color;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin-bottom: $base-spacing * 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: $base-spacing;
+  }
+
+  .list {
+    height: 30%;
+  }
+
+  p {
+    text-align: justify;
+    color: $secondary-text;
+    margin-bottom: $base-spacing * 2;
+  }
+}

@@ -1,0 +1,76 @@
+﻿@import "../../variables.scss";
+
+nav {
+  height: $NavBar-height-mb;
+  max-width: 100vw;
+  background-color: white;
+  padding: 0 $base-spacing * 4;
+  border-bottom: $primary-border;
+  color: $primary-color;
+
+  a {
+    color: $primary-color;
+
+    &:visited {
+      color: $primary-color;
+    }
+  }
+
+  div {
+    img {
+      margin-right: 10px;
+      height: 35px;
+    }
+
+    h1 {
+      display: none;
+    }
+
+    &.searchPanel {
+      font-size: 1.5em;
+      display: flex;
+
+      .faStyles {
+        margin-left: $base-spacing * 4;
+
+        &:hover {
+          cursor: pointer;
+          color: $secondary-color;
+        }
+      }
+
+      .faStylesDisabled {
+        margin-left: $base-spacing * 4;
+        color: $secondary-text;
+      }
+    }
+  }
+}
+
+.navFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    height: $NavBar-height;
+
+    div {
+      &.searchPanel {
+        font-size: 2em;
+      }
+
+      img {
+        height: 50px;
+      }
+
+      h1 {
+        display: unset;
+        font-size: 1.75em;
+      }
+    }
+  }
+}
