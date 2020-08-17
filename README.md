@@ -1,17 +1,13 @@
-# CHALLENGE NOTES
+# CODE ALONG NOTES
 
-- Edit the CardBack component so that it takes in a recipe object as props
-- Display the information for Meal name and the instrustions from the props recipe
-- Pass recipes[1] into the CardBack component from App.jsx
+Map over data to produce both the list component and CardFront components
 
-## EXTENSION
+## STEPS
 
-- Create a method on the class that will shorten the instructions to 300 characters if it is above that length (see screenshot)
+- In App.jsx map over the recipes to produce one CardFront for each object of data
+- Explain the unique key error in the console
+- Create the List component and have it map over an array of ingredients passed in as props
 
-## Solution screenshot
+## Challenge branch
 
-![solution](./src/assets/solution.png)
-
-## Completed branch
-
-5-map-data-ca
+6-map-data-ch
