@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import CardFront from "./components/CardFront";
 
-class App extends Component {
-  render() {
-    return <CardFront />;
-  }
-}
+const App = () => {
+  return <CardFront />;
+};
 
 export default App;
