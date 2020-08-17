@@ -7,15 +7,21 @@ import NavBar from "./components/NavBar";
 import recipes from "./data/recipes";
 
 const App = () => {
-  return ( <>
-    <section className={styles.nav}>
-      <NavBar />
-    </section>
-    <section className={styles.content}>
-      <CardFront recipe={recipes[1]} />
-      <CardBack />
-    </section>
-  </>  );
-}
- 
+  const getCardFrontJsx = (recipe) => (
+    <CardFront key={recipe.idMeal} recipe={recipe} />
+  );
+
+  return (
+    <>
+      <section className={styles.nav}>
+        <NavBar />
+      </section>
+      <section className={styles.content}>
+        {recipes.map(getCardFrontJsx)}
+        <CardBack recipe={recipes[1]} />
+      </section>
+    </>
+  );
+};
+
 export default App;

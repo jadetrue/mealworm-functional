@@ -1,17 +1,16 @@
 # CHALLENGE NOTES
 
-- Edit the CardBack component so that it takes in a recipe object as props
-- Display the information for Meal name and the instrustions from the props recipe
-- Pass recipes[1] into the CardBack component from App.jsx
+- In App.jsx map over the recipes data and produce one CardBack component for each object of data (see screenshot)
 
 ## EXTENSION
 
-- Create a method on the class that will shorten the instructions to 300 characters if it is above that length (see screenshot)
+- Find a way to produce alternating CardFront and CardBack components (see second screenshot)
 
 ## Solution screenshot
 
 ![solution](./src/assets/solution.png)
+![extension](./src/assets/extension.png)
 
 ## Completed branch
 
-5-map-data-ca
+7-font-awesome-ca
