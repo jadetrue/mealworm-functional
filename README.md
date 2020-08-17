@@ -14,4 +14,4 @@ Create a static CardFront component
 
 ## Challenge branch
 
-components-challenge
+2-components-ch
