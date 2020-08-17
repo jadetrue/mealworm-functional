@@ -5,6 +5,8 @@ Create a static CardFront component
 ## STEPS
 
 - Clear out all of the beginning React App materials (jsx, logos etc.)
+- Add node-sass to the dependencies
+- Convert App.jsx to a functional component
 - Create a components/CardFront directory containing .jsx .module.scss index.js and .module.scss
 - Create the markup in the .jsx file
 - Import & export from the index.js
