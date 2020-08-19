@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./App.module.scss";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
@@ -7,8 +7,11 @@ import NavBar from "./components/NavBar";
 import recipes from "./data/recipes";
 
 const App = () => {
-  const getCardFrontJsx = (recipe) => (
-    <CardFront key={recipe.idMeal} recipe={recipe} />
+  const getCardJsx = (recipe) => (
+    <React.Fragment key={recipe.idMeal}>
+      <CardFront recipe={recipe} />
+      <CardBack recipe={recipe} />
+    </React.Fragment>
   );
 
   return (
@@ -16,10 +19,7 @@ const App = () => {
       <section className={styles.nav}>
         <NavBar />
       </section>
-      <section className={styles.content}>
-        {recipes.map(getCardFrontJsx)}
-        <CardBack recipe={recipes[1]} />
-      </section>
+      <section className={styles.content}>{recipes.map(getCardJsx)}</section>
     </>
   );
 };
