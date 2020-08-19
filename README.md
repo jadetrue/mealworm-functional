@@ -1,15 +1,14 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Add font awesome library and relevant icons to our React app
+- Add the cookbook icon into the NavBar component
+- Add the globe icon to the CardBack component
+- Add the arrow right to each list item in the list component
+- Add the Youtube icon to the CardBack component (read around for including brand icons)
 
-## STEPS
+## Solution screenshot
 
-- Go to the docs at https://www.npmjs.com/package/@fortawesome/react-fontawesome
-- Add relevant packages as dependencies
-- Create library in data/fa-library.js
-- Create SearchBar component and use the search icon next to the input field
-- Add solid heart icon to CardBack (show how solid and hollow versions of one icon are implemented)
+![solution](./src/assets/solution.png)
 
-## Challenge branch
+## Completed branch
 
-font-awesome-challenge
+9-state-ca

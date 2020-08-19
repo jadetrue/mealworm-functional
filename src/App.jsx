@@ -4,6 +4,7 @@ import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
 import NavBar from "./components/NavBar";
 
+import library from "./data/fa-library";
 import recipes from "./data/recipes";
 
 const App = () => {
