@@ -12,4 +12,4 @@ Add font awesome library and relevant icons to our React app
 
 ## Challenge branch
 
-font-awesome-challenge
+8-font-awesome-ch
