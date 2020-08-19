@@ -31,6 +31,10 @@
     p {
       color: $secondary-text;
       margin-bottom: $base-spacing * 2;
+
+      span {
+        margin-left: $base-spacing;
+      }
     }
 
     .links {

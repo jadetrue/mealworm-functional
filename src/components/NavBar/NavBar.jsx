@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import styles from "./NavBar.module.scss";
 import logo from "../../assets/plate-secondary.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBar from "../SearchBar";
 
 const NavBar = () => {
@@ -12,6 +13,9 @@ const NavBar = () => {
       </div>
       <div className={styles.searchPanel}>
         <SearchBar />
+        <span className={styles.faStyles}>
+          <FontAwesomeIcon icon="book-open" />
+        </span>
       </div>
     </nav>
   );
