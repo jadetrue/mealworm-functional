@@ -34,11 +34,26 @@ $border-rounding: 5px;
 %card {
   max-height: 400px;
   max-width: 275px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
-  border: solid 2px rgb(70, 50, 111);
+  height: 100%;
+  width: 100%;
+  border-radius: $border-rounding;
+  box-shadow: $card-shadowing;
+  border: $primary-border;
   backface-visibility: hidden;
   background-color: white;
-  margin: 20px;
+  position: absolute;
+
+  &:hover {
+    box-shadow: $card-hover-shadowing;
+    border: $secondary-border;
+    cursor: pointer;
+
+    .recipeDetails {
+      border-color: $secondary-color;
+
+      h2 {
+        color: $primary-text;
+      }
+    }
+  }
 }

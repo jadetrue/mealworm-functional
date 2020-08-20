@@ -1,8 +1,6 @@
 @import "../../variables.scss";
 
 .cardFront {
-  @extend %card;
-
   img {
     height: 60%;
     width: 100%;

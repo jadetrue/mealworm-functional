@@ -12,7 +12,7 @@ const NavBar = () => {
         <h1>MealWorm</h1>
       </div>
       <div className={styles.searchPanel}>
-        <SearchBar />
+        <SearchBar placeholder="search for recipes..." />
         <span className={styles.faStyles}>
           <FontAwesomeIcon icon="book-open" />
         </span>

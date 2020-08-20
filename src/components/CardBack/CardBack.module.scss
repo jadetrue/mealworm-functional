@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 
 .cardBack {
-  @extend %card;
   padding: $base-spacing * 4;
   position: relative;
 
@@ -38,7 +37,7 @@
   }
 
   .list {
-    height: 30%;
+    height: 100px;
   }
 
   p {

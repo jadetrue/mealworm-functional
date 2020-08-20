@@ -1,18 +1,21 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Implement state and setState logic to flip the card
+- Add state and setState logic into the SearchBar component (isOpen)
+  - Add conditional rendering so the input field either displays or doesn't based on isOpen === true
+- Add state and setState logic into the CardBack component (isFav)
+  - Add logic so the solid/hollow heart swap when you click on them (the icons are commented out in the file)
 
-## STEPS
+## EXTENSION
 
-- Create a Card component to house both the CardFront and CardBack component
-- Edit the App.jsx to map recipes into individual Card components
-- Edit the App.module.scss to display cards as a grid
-- Style the Card so you can either see the front or back (by adding or removing the faceDown css class)
-- Create the initial state object with isFaceDown: false
-- Attach flipCard method to onclick for the whole card (this method will update the state)
-- Show trainees state change in React devtools
-- Add conditional styling so faceDown css class is added or removed on state change
+- Stop the card from flipping when you click on the heart (will require troubleshooting - research how to stop event propagation)
 
-## Challenge branch
+## Solution screenshot
 
-10-state-ch
+![solution-closed](./src/assets/solution-closed.png)
+![solution-open](./src/assets/solution-open.png)
+![solution-filled](./src/assets/solution-filled.png)
+![solution-empty](./src/assets/solution-empty.png)
+
+## Completed branch
+
+11-funcs-as-props-ca
