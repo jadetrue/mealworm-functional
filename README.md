@@ -1,16 +1,17 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Add routing to Mealworm. Should be able to route between dashboard, cookbook and 404 page
+## React sandbox repo
 
-## STEPS
+- Create 3 pages: Home, Login and Favourites (Dont worry about content or styling as this is not the purpose of the challenge)
+- Create a simple Navbar with Links to the 3 pages
+- Implement routing between these pages
+- Add a default route to a not found page
 
-- Create Dashboard, Cookbook and Routes containers and a NotFound component
-- Create the relevant paths and default routes in the Routes.jx
-- Move map logic and styles for Card components from App.jsx into Dashboard.jsx
-- Move Routes into the .content section in App.jsx
-- Add Links to the cookbook icon and MealWorm logo
-- Once routing is working create a CardList component that takes recipes as props and implement in Dashboard
+### Extension
 
-## Challenge branch
+- Read the documentation for @reach/router and find out how to implement nested routing
+- Create additional routes embedded within the Home page
 
-12-routing-ch
+## Next branch 
+
+13-funcs-as-props

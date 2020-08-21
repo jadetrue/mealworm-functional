@@ -2,23 +2,20 @@ import React from "react";
 import styles from "./App.module.scss";
 import Card from "./components/Card";
 import NavBar from "./components/NavBar";
+import Routes from "./containers/Routes";
 
 import library from "./data/fa-library";
 import recipes from "./data/recipes";
 
 const App = () => {
-  const getCardJsx = (recipe) => (
-    <div className={styles.card} key={recipe.idMeal}>
-      <Card recipe={recipe} />
-    </div>
-  );
-
   return (
     <>
       <section className={styles.nav}>
         <NavBar />
       </section>
-      <section className={styles.content}>{recipes.map(getCardJsx)}</section>
+      <section className={styles.content}>
+        <Routes />
+      </section>
     </>
   );
 };
