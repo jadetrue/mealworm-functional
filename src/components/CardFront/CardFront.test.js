@@ -24,4 +24,12 @@ describe("CardFront tests", () => {
   it("should render recipe meal thumb on page", () => {
     expect(component.find('img').prop('src')).toBe(testRecipe.strMealThumb);
   });
+
+  it("should render correct recipe source href", () => {
+    expect(component.find('a').at(0).prop('href')).toBe(testRecipe.strSource);
+  });
+
+  it("should render correct youtube href", () => {
+    expect(component.find('a').at(1).prop('href')).toBe(testRecipe.strYoutube);
+  });
 });

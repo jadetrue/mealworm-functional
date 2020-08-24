@@ -32,4 +32,16 @@ describe("SearchBar tests", () => {
     component.find('input').simulate('input', { target: { value: 'User input' } })
     expect(mockFn).toHaveBeenCalledWith('User input');
   })
+
+  it('should not show the input field by default', () => {
+    expect(component.find('input').length).toBe(0);
+  })
+
+  it('should toggle input rendering when FA icon is clicked', () => {
+    expect(component.find('input').length).toBe(0);
+    component.find('span.fa').simulate('click');
+    expect(component.find('input').length).toBe(1);
+    component.find('span.fa').simulate('click');
+    expect(component.find('input').length).toBe(0);
+  })
 });
