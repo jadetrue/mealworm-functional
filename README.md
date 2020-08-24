@@ -1,21 +1,20 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Implement the logic to call themealdb api when a user types into the searchbar and to display the returned results in the Dashboard container
+## React sandbox repo
 
-## STEPS
+Create a fetch that calls the catfacts.ninja API and displays the returned data in any way you choose
 
-- Create the state/setState logic for recipes in App.jsx
-- Create the fetchRecipes method in App.jsx that updates the state when resolved
-- Returned data is not in the desired format (ingredients are listed as individual strings) and must be cleaned
-  - Create a method called cleanRecipe and map through the fetch result before updating state
-  - cleanRecipe will add isFav: false to each recipe
-  - cleanRecipe will also create an ingredients array using getIngredients method (see challenge branch for referrence)
-- Remove original logic in App and Dashboard to filter data file recipes by searchText
+- Read the docs here: https://catfact.ninja/docs
+- You will need to have a good read of the docs to find out how to return mroe than one fact at a time
+- Test the API in postman before trying to call it in react
+- The MVP is to get 10 facts appearing on the page as sentences
 
-### N.B.
+### Extension
 
-Explain to the trainees that this logic typically wouldn't live in App and current solution is not very efficient (every time App state is updated entire page rerenders). This can be abtracted later into something such as Redux/Context.
+- GET CREATIVE! Display the returned facts in a creative way that actually makes this interesting to the user
+- Allow the user to input how many they want to see at any one time
 
-## Challenge branch
 
-16-api-call-ch
+## Next branch
+
+17-unit-testing-ca
