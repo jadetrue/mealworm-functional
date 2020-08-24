@@ -1,28 +1,24 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Show functions being passed down as props. Implement the logic to search through the data file for a matching recipe and to add recipes from the dashboard into your favourites/cookbook
+### MealWorm
 
-## STEPS
+Add the logic to remove Cards from your favourite collection in Cookbook
 
-### New components
+### React Sandbox
 
-- Create a reusable CardList component that takes in recipes as props and maps to Card components (to be used in both Dashboard and Cookbook)
-- Create a reusable feedback panel component from the panel in the NotFound component (To be used in NotFound, Dashboard and Cookbook)
+Create a counter with a reusable button component. In one place the button should increase the count, in the other it should decrease the count (to be completed in react sandbox repo)
 
-### Adding to favourites
+- Create a Counter component and a Button component
+- House two Button components in the Counter component (one will increment, one will decrement)
+- Implement state and setState logic in the counter component so count can be increased or decreased
+- Pass the relevant setState logic into the button components
 
-- Set the Cookbook up to filter recipes in the data file based on the isFav property (set to false for all to begin with)
-- The Cookbook should show the feedback panel if no recipes are favourited and the relevant recipes if they are
-- Create a method in the Dashboard container (toggleFav) that takes in a recipe and toggles the isFav property to the opposite of what it currently is
-- Pass this method down through CardList, Card and finally into CardBack where you can call it from the existing toggleFav method there
+## Solution screenshot
 
-### Search functionality
+![solution](./src/assets/solution-one.png)
+![solution](./src/assets/solution-two.png)
+![solution](./src/assets/solution-three.png)
 
-- Add state & setState logic into App.jsx for searchText
-- Pass the setState method (updateSearchText) from App into NavBar and then into SearchBar so when the user types into the input field it updates the state in App.jsx (check react devtools)
-- Pass the searchText down into Routes, then Dashboard and use to filter the recipes in recipes.js
-- If there are no matches show the feedback panel else show the matching recipes
+## Completed branch
 
-## Challenge branch
-
-14-funcs-as-props-ch
+15-api-call-ca

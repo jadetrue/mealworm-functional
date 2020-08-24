@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./App.module.scss";
-import Card from "./components/Card";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes";
 
 import library from "./data/fa-library";
-import recipes from "./data/recipes";
 
 const App = () => {
+  const [searchText, setSearchText] = useState("");
+
   return (
     <>
       <section className={styles.nav}>
-        <NavBar />
+        <NavBar updateSearchText={setSearchText} />
       </section>
       <section className={styles.content}>
-        <Routes />
+        <Routes searchText={searchText} />
       </section>
     </>
   );

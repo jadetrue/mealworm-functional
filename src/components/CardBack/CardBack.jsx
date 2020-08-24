@@ -4,24 +4,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import List from "../List";
 
 const CardBack = (props) => {
-  const [isFav, setIsFav] = useState(false);
+  const { recipe, toggleFav } = props;
+  const { ingredients, strMeal, strInstructions, isFav } = recipe;
+  const [favState, setFavState] = useState(isFav);
 
   const shortenInstructions = (instructions) =>
     instructions.length < 300
       ? instructions
       : instructions.substring(0, 200) + "...";
 
-  const toggleFav = (e) => {
+  const handleFavClick = (e) => {
     e.stopPropagation();
-    setIsFav(!isFav);
+    toggleFav(recipe);
+    setFavState(!isFav);
   };
 
-  const { ingredients, strMeal, strInstructions } = props.recipe;
-  const heartIcon = isFav ? ["fas", "heart"] : ["far", "heart"];
+  const heartIcon = favState ? ["fas", "heart"] : ["far", "heart"];
 
   return (
     <section className={styles.cardBack}>
-      <span className={styles.heart} onClick={toggleFav}>
+      <span className={styles.heart} onClick={handleFavClick}>
         <FontAwesomeIcon icon={heartIcon} />
       </span>
       <h2>{strMeal}</h2>

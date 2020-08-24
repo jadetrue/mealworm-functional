@@ -1,31 +1,6 @@
 @import "../../variables.scss";
 
-.emptyDash {
-  padding: $base-spacing * 4;
-  width: 100vw;
+.cookbook {
   height: calc(100vh - 75px);
-  position: relative;
-
-  .foodPics {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-  }
-
-  .searchPrompt {
-    position: absolute;
-    top: $base-spacing * 4;
-    left: calc(50% - 400px / 2);
-    z-index: 2;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .searchPrompt {
-    height: 200px;
-    width: 400px;
-  }
+  width: 100%;
 }

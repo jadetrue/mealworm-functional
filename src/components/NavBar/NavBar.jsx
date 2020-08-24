@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const {updateSearchText} = props;
+
   return (
     <nav className={styles.navFlex}>
       <Link to="/">
@@ -15,7 +17,7 @@ const NavBar = () => {
         </div>
       </Link>
       <div className={styles.searchPanel}>
-        <SearchBar placeholder="Search for recipes..." />
+        <SearchBar placeholder="Search for recipes..." updateSearchText={updateSearchText} />
         <span className={styles.faStyles}>
           <Link to="cookbook">
             <FontAwesomeIcon icon="book-open" />
