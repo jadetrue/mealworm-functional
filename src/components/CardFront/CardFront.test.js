@@ -1,16 +1,27 @@
 import React from "react";
-import { CardFront } from "./CardFront";
-import { render } from '@testing-library/react';
+import CardFront from "./CardFront";
 import { mount } from "enzyme";
+import recipes from '../../data/recipes';
 
 describe("CardFront tests", () => {
   let component;
+  let testRecipe;
 
   beforeEach(() => {
-    component = mount(<CardFront />);
-  })
+    testRecipe = recipes[0];
+    component = mount(<CardFront recipe={testRecipe} />);
+  });
 
   it("should render", () => {
-    expect(render(<CardFront />)).toBeTruthy();
+    expect(component).toBeTruthy();
+  });
+
+  it('should render the correct name based on the recipe passed in as props', () => {
+    const mealTitle = testRecipe.strMeal;
+    expect(component.text()).toContain(mealTitle);
+  })
+
+  it("should render recipe meal thumb on page", () => {
+    expect(component.find('img').prop('src')).toBe(testRecipe.strMealThumb);
   });
 });
