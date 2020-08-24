@@ -14,4 +14,4 @@ Demonstrate unit testing with Jest and Enzyme in a variety of places around the 
 
 ## Challenge branch
 
-18-unit-testing-cha
+18-unit-testing-ch
