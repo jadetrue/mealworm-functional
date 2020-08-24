@@ -5,10 +5,15 @@ import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 import CardList from "../../components/CardList/CardList";
 
 const Cookbook = () => {
-  const favourites = recipes.filter(recipe => recipe.isFav);
+  const [favourites, setFavourites] = useState(recipes.filter(recipe => recipe.isFav))
+
+  const removeFromFav = (recipe) => {
+    recipe.isFav = false;
+    setFavourites(recipes.filter((recipe) => recipe.isFav));
+  };
 
   const contentJsx = favourites.length ? (
-    <CardList recipes={favourites} />
+    <CardList recipes={favourites} toggleFav={removeFromFav} />
   ) : (
     <FeedbackPanel
       header="No favourites"
