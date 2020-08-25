@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes";
+import firebase, { provider } from "./firebase";
 
-import library from "./data/fa-library";
+import "./data/fa-library";
+import { useEffect } from "react";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
+  const [user, setUser] = useState(null);
 
   const getIngredients = (recipe) => {
     let ingredients = [];
@@ -32,7 +35,7 @@ const App = () => {
       dateCreated: new Date().toUTCString(),
       dateModified: null,
       youtube: recipe.strYoutube,
-      isFav: false
+      isFav: false,
     };
     return cleanedRecipe;
   };
@@ -49,10 +52,45 @@ const App = () => {
       });
   };
 
+  const signIn = () => {
+    firebase.auth().signInWithRedirect(provider);
+  };
+
+  const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setUser(null);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getUser = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+  };
+
+  useEffect(() => {
+    getUser();
+  })
+
   return (
     <>
       <section className={styles.nav}>
-        <NavBar updateSearchText={grabRecipes} />
+        <NavBar
+          updateSearchText={grabRecipes}
+          user={user}
+          signIn={signIn}
+          signOut={signOut}
+        />
       </section>
       <section className={styles.content}>
         <Routes recipes={recipes} />

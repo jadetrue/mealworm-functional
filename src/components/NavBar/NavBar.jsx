@@ -6,7 +6,19 @@ import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
 
 const NavBar = (props) => {
-  const { updateSearchText } = props;
+  const { updateSearchText, signIn, signOut, user } = props;
+
+  const getSignInOutJsx = () => {
+    return user ? (
+      <span className={styles.faStyles}>
+        <FontAwesomeIcon icon={"sign-out-alt"} onClick={signOut} />
+      </span>
+    ) : (
+      <span className={styles.faStyles}>
+        <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
+      </span>
+    );
+  };
 
   return (
     <nav className={styles.navFlex}>
@@ -31,6 +43,7 @@ const NavBar = (props) => {
             <FontAwesomeIcon icon="book-open" />
           </Link>
         </span>
+        {getSignInOutJsx()}
       </div>
     </nav>
   );
