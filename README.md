@@ -22,4 +22,4 @@ When completed you should be able to login then see the google icon change to a 
 
 ## Challenge branch
 
-authentication-challenge
+24-authentication-ch
