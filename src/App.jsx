@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes";
 import firebase, { provider } from "./firebase";
 
 import "./data/fa-library";
-import { useEffect } from "react";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
