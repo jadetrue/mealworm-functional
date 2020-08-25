@@ -6,7 +6,7 @@ const SearchBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { placeholder, updateSearchText } = props;
 
-  const input = isOpen ? <input type="text" placeholder={placeholder} onInput={e => updateSearchText(e.target.value)} /> : null;
+  const input = isOpen ? <input type="text" placeholder={placeholder} autoFocus={true} onInput={e => updateSearchText(e.target.value)} /> : null;
 
   return (
     <div className={styles.search}>
