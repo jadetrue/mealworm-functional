@@ -29,7 +29,7 @@ const Cookbook = () => {
 
   useEffect(() => {
     fetchCookbook();
-  })
+  }, [])
 
   const contentJsx = favourites.length ? (
     <CardList recipes={favourites} toggleFav={removeFromFav} />

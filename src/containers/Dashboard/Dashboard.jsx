@@ -13,7 +13,6 @@ const DashBoard = (props) => {
   };
 
   const addToCookbook = (recipe) => {
-    alert('ping')
     firestore
       .collection("recipes")
       .doc(recipe.id)
