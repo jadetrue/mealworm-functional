@@ -6,7 +6,7 @@ import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
 
 const NavBar = (props) => {
-  const {updateSearchText} = props;
+  const { updateSearchText } = props;
 
   return (
     <nav className={styles.navFlex}>
@@ -17,7 +17,15 @@ const NavBar = (props) => {
         </div>
       </Link>
       <div className={styles.searchPanel}>
-        <SearchBar placeholder="Search for recipes..." updateSearchText={updateSearchText} />
+        <SearchBar
+          placeholder="Search for recipes..."
+          updateSearchText={updateSearchText}
+        />
+        <span className={styles.faStyles}>
+          <Link to="create">
+            <FontAwesomeIcon icon="plus-square" />
+          </Link>
+        </span>
         <span className={styles.faStyles}>
           <Link to="cookbook">
             <FontAwesomeIcon icon="book-open" />

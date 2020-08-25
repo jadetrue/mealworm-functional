@@ -5,20 +5,11 @@ import FeedbackPanel from "../../components/FeedbackPanel";
 import { firestore } from "../../firebase";
 
 const DashBoard = (props) => {
-  const { recipes } = props;
+  const { recipes, addToCookbook } = props;
 
   const toggleFav = (recipe) => {
     recipe.isFav = !recipe.isFav;
     recipe.isFav ? addToCookbook(recipe) : removeFromCookbook(recipe);
-  };
-
-  const addToCookbook = (recipe) => {
-    firestore
-      .collection("recipes")
-      .doc(recipe.id)
-      .set(recipe)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
   };
 
   const removeFromCookbook = (recipe) => {
