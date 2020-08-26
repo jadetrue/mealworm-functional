@@ -4,24 +4,27 @@ import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 import CardList from "../../components/CardList/CardList";
 import { firestore } from "../../firebase";
 
-const Cookbook = () => {
+const Cookbook = (props) => {
   const [favourites, setFavourites] = useState([]);
+  const { user } = props;
 
   const fetchCookbook = () => {
     firestore
       .collection("recipes")
       .get()
       .then((querySnapshot) => {
-        const favourites = querySnapshot.docs.map((doc) => doc.data());
-        setFavourites(favourites)
+        const favourites = querySnapshot.docs
+          .filter((doc) => doc.data().uid === user.uid)
+          .map((doc) => doc.data());
+          setFavourites(favourites);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.log(err));
   };
 
   const removeFromFav = (recipe) => {
     firestore
       .collection("recipes")
-      .doc(recipe.id)
+      .doc(recipe.id + user.uid)
       .delete()
       .then(fetchCookbook)
       .catch((err) => console.error(err));
@@ -29,7 +32,7 @@ const Cookbook = () => {
 
   useEffect(() => {
     fetchCookbook();
-  }, [])
+  }, []);
 
   const contentJsx = favourites.length ? (
     <CardList recipes={favourites} toggleFav={removeFromFav} />

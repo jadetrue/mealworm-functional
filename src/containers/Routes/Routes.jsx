@@ -14,10 +14,8 @@ const Routes = (props) => {
   const addToCookbook = (recipe) => {
     firestore
       .collection("recipes")
-      .doc(recipe.id)
-      .set(recipe)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .doc(recipe.id + user.uid)
+      .set({ ...recipe, uid: user.uid });
   };
 
   return (
@@ -26,9 +24,10 @@ const Routes = (props) => {
         path="/"
         recipes={recipes}
         addToCookbook={addToCookbook}
+        user={user}
       />
       <PrivateRoutes path="/" user={user}>
-        <Cookbook path="cookbook" />
+        <Cookbook path="cookbook" user={user} />
         <CreateRecipe path="create" addToCookbook={addToCookbook} />
       </PrivateRoutes>
       <NotFound default />
