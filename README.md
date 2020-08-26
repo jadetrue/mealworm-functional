@@ -1,20 +1,15 @@
-# CHALLENGE NOTES
+# CODE ALONG NOTES
 
-## React sandbox repo
+Add private routing to the MealWorm app so a user cannot navigate to the create or cookbook pages either by URL or by NavBar links when not signed in.
 
-Add the capability for a user to sign in and sing out with google to your react sandbox repo
+## STEPS
 
-- You do not have to mimic the conditional rendering in MealWorm (where either the book or google icon are shown)
-- As long as you can see the user data in your console/react devtools that is okay
-- Add the logic to sing out after (This is not something we covered in the code along and will require you to read the firebase docs)
+- Create a container for PrivateRoutes which renders it's props.children and takes in a user as props
+- Add into Routes container and wrap around Cookbook and CreateRecipe components (good point to explain containment in React)
+- Pass user state from App.jsx into Routes and then into PrivateRoutes
+- In PrivateRoutes add a componentDidMount with the callback triggering a firebaseOnAuthStateChanged and checking for a user
+- If there is no user trigger an alert to give feedback and then navigate back to "/"
 
-### Extension
+## Challenge branch
 
-GET CREATIVE!
-
-- See what information is returned in the user object from firebase after login
-- Can any of this be made useful to the user?
-
-## Next branch
-
-25-private-routing-ca
+26-authenticated-crud-ca
