@@ -6,9 +6,10 @@ import Dashboard from "../Dashboard";
 import Cookbook from "../Cookbook";
 import NotFound from "../../components/NotFound";
 import CreateRecipe from "../CreateRecipe";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const Routes = (props) => {
-  const { recipes } = props;
+  const { recipes, user } = props;
 
   const addToCookbook = (recipe) => {
     firestore
@@ -21,9 +22,15 @@ const Routes = (props) => {
 
   return (
     <Router>
-      <Dashboard path="/" recipes={recipes} addToCookbook={addToCookbook} />
-      <Cookbook path="cookbook" />
-      <CreateRecipe path="create" addToCookbook={addToCookbook} />
+      <Dashboard
+        path="/"
+        recipes={recipes}
+        addToCookbook={addToCookbook}
+      />
+      <PrivateRoutes path="/" user={user}>
+        <Cookbook path="cookbook" />
+        <CreateRecipe path="create" addToCookbook={addToCookbook} />
+      </PrivateRoutes>
       <NotFound default />
     </Router>
   );

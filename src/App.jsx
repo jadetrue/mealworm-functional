@@ -77,7 +77,7 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     getUser();
   })
 
@@ -92,7 +92,7 @@ const App = () => {
         />
       </section>
       <section className={styles.content}>
-        <Routes recipes={recipes} />
+        <Routes recipes={recipes} user={user} />
       </section>
     </>
   );
