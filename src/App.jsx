@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes";
-import firebase, { provider } from "./firebase";
-
+import { UserProvider } from "./context/userContext";
+import { CrudProvider } from "./context/crudContext";
 import "./data/fa-library";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-  const [user, setUser] = useState(null);
 
   const getIngredients = (recipe) => {
     let ingredients = [];
@@ -51,49 +50,21 @@ const App = () => {
       });
   };
 
-  const signIn = () => {
-    firebase.auth().signInWithRedirect(provider);
-  };
-
-  const signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        setUser(null);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const getUser = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-  };
-
-  useEffect(() => { 
-    getUser();
-  })
 
   return (
     <>
-      <section className={styles.nav}>
-        <NavBar
-          updateSearchText={grabRecipes}
-          user={user}
-          signIn={signIn}
-          signOut={signOut}
-        />
-      </section>
-      <section className={styles.content}>
-        <Routes recipes={recipes} user={user} />
-      </section>
+      <UserProvider>
+        <section className={styles.nav}>
+          <NavBar
+            updateSearchText={grabRecipes}
+          />
+        </section>
+        <section className={styles.content}>
+          <CrudProvider>
+            <Routes recipes={recipes} />
+          </CrudProvider>
+        </section>
+      </UserProvider>
     </>
   );
 };

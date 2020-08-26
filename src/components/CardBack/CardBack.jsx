@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./CardBack.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CrudContext } from "../../context/crudContext";
 import List from "../List";
 
 const CardBack = (props) => {
-  const { recipe, toggleFav } = props;
+  const { recipe } = props;
   const { ingredients, name, instructions, isFav } = recipe;
   const [favState, setFavState] = useState(isFav);
+  const crudContext = useContext(CrudContext);
+  const { toggleFav } = crudContext;
 
   const shortenInstructions = (instructions) =>
     instructions.length < 300

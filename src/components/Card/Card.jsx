@@ -4,7 +4,7 @@ import CardFront from "../CardFront";
 import CardBack from "../CardBack";
 
 const Card = (props) => {
-  const { recipe, toggleFav } = props;
+  const { recipe } = props;
   const [isFaceDown, setIsFaceDown] = useState(false);
 
   const flipStyles = isFaceDown ? styles.faceDown : "";
@@ -18,7 +18,7 @@ const Card = (props) => {
         <CardFront recipe={recipe} />
       </div>
       <div className={styles.back}>
-        <CardBack recipe={recipe} toggleFav={toggleFav} />
+        <CardBack recipe={recipe} />
       </div>
     </section>
   );

@@ -1,12 +1,15 @@
-﻿import React from "react";
+﻿import React, { useContext } from "react";
 import styles from "./NavBar.module.scss";
 import logo from "../../assets/plate-secondary.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
+import { UserContext } from "../../context/userContext";
 
 const NavBar = (props) => {
-  const { updateSearchText, signIn, signOut, user } = props;
+  const userContext = useContext(UserContext);
+  const { signIn, signOut, user } = userContext;
+  const { updateSearchText } = props;
 
   const getSignInOutJsx = () => {
     return user ? (

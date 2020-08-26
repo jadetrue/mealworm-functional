@@ -9,26 +9,14 @@ import CreateRecipe from "../CreateRecipe";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const Routes = (props) => {
-  const { recipes, user } = props;
-
-  const addToCookbook = (recipe) => {
-    firestore
-      .collection("recipes")
-      .doc(recipe.id + user.uid)
-      .set({ ...recipe, uid: user.uid });
-  };
+  const { recipes } = props;
 
   return (
     <Router>
-      <Dashboard
-        path="/"
-        recipes={recipes}
-        addToCookbook={addToCookbook}
-        user={user}
-      />
-      <PrivateRoutes path="/" user={user}>
-        <Cookbook path="cookbook" user={user} />
-        <CreateRecipe path="create" addToCookbook={addToCookbook} />
+      <Dashboard path="/" recipes={recipes} />
+      <PrivateRoutes path="/">
+        <Cookbook path="cookbook" />
+        <CreateRecipe path="create" />
       </PrivateRoutes>
       <NotFound default />
     </Router>

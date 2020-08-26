@@ -7,7 +7,7 @@ const CardList = (props) => {
   
   const getCardJsx = (recipe) => (
     <div className={styles.card} key={recipe.id}>
-      <Card recipe={recipe} toggleFav={props.toggleFav} />
+      <Card recipe={recipe} />
     </div>
   );
 
