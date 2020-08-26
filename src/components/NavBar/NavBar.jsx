@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
 import { UserContext } from "../../context/userContext";
+import { RecipeContext } from "../../context/recipeContext";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const userContext = useContext(UserContext);
+  const recipeContext = useContext(RecipeContext);
   const { signIn, signOut, user } = userContext;
-  const { updateSearchText } = props;
+  const { grabRecipes } = recipeContext;
 
   const getSignInOutJsx = () => {
     return user ? (
@@ -34,7 +36,7 @@ const NavBar = (props) => {
       <div className={styles.searchPanel}>
         <SearchBar
           placeholder="Search for recipes..."
-          updateSearchText={updateSearchText}
+          updateSearchText={grabRecipes}
         />
         <span className={styles.faStyles}>
           <Link to="create">

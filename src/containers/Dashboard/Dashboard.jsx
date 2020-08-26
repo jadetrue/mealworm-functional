@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Dashboard.module.scss";
 import CardList from "../../components/CardList";
 import FeedbackPanel from "../../components/FeedbackPanel";
-import { firestore } from "../../firebase";
+import { RecipeContext } from "../../context/recipeContext";
 
-const DashBoard = (props) => {
-  const { recipes } = props;
+const DashBoard = () => {
+  const recipeContext = useContext(RecipeContext);
+  const { recipes } = recipeContext;
 
   const contentJsx = recipes.length ? (
     <CardList recipes={recipes} />
