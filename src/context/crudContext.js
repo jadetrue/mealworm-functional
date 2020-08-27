@@ -8,40 +8,49 @@ export const CrudProvider = (props) => {
   const [favourites, setFavourites] = useState([]);
   const userContext = useContext(UserContext);
 
+  const url = "https://mealworm-api.web.app/api";
+
   const fetchCookbook = () => {
     if (userContext.user) {
-      firestore
-        .collection("recipes")
-        .get()
-        .then((querySnapshot) => {
-          const favourites = querySnapshot.docs
-            .filter((doc) => doc.data().uid === userContext.user.uid)
-            .map((doc) => doc.data());
+      fetch(`${url}/favourites/${userContext.user.uid}`)
+        .then((response) => response.json())
+        .then(({ recipes }) => {
+          const favourites = recipes.map((recipe) => ({
+            ...recipe,
+            isFav: true,
+          }));
           setFavourites(favourites);
-        })
-        .catch((err) => console.log(err));
+        });
     }
   };
 
   const addToCookbook = (recipe) => {
-    firestore
-      .collection("recipes")
-      .doc()
-      .set({ ...recipe, uid: userContext.user.uid })
-      .then(fetchCookbook)
-      .catch((err) => console.log(err));
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...recipe,
+        userId: userContext.user.uid,
+      }),
+    };
+
+    fetch(`${url}/recipes`, requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then(fetchCookbook);
   };
 
   const removeFromCookbook = (recipe) => {
-    const query = firestore
-      .collection("recipes")
-      .where("id", "==", recipe.id)
-      .where("uid", "==", userContext.user.uid);
+    const requestOptions = {
+      method: "DELETE",
+    };
 
-    query.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => doc.ref.delete());
-      fetchCookbook();
-    });
+    fetch(`${url}/recipes/${recipe.id}`, requestOptions)
+      .then((response) => response.json())
+      .then(fetchCookbook);
   };
 
   const toggleFav = (recipe) => {
@@ -60,7 +69,9 @@ export const CrudProvider = (props) => {
   }, []);
 
   return (
-    <CrudContext.Provider value={{ favourites, toggleFav, addToCookbook }}>
+    <CrudContext.Provider
+      value={{ favourites, toggleFav, addToCookbook }}
+    >
       {props.children}
     </CrudContext.Provider>
   );
