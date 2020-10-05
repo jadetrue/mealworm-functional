@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from 'react'
 import styles from "./CardFront.module.scss";
 
-class CardFront extends Component {
-  render() {
-    return (
+export default CardFront = () => {
+  return (
+    <div>
       <div className={styles.cardFront}>
         <img src="https://www.themealdb.com/images/media/meals/sstssx1487349585.jpg" alt="Thai Green Curry" />
         <section className={styles.recipeDetails}>
@@ -21,8 +21,6 @@ class CardFront extends Component {
           </div>
         </section>
       </div>
-    );
-  }
+    </div>
+  )
 }
-
-export default CardFront;
