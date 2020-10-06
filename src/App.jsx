@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./App.module.scss";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";

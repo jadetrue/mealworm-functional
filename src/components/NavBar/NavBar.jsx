@@ -1,4 +1,4 @@
-﻿import React, { Component } from "react";
+﻿import React from "react";
 import styles from "./NavBar.module.scss";
 import logo from "../../assets/plate-secondary.png";
 

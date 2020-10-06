@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./CardBack.module.scss";
 
 const CardBack = (props) => {
@@ -13,7 +13,7 @@ const CardBack = (props) => {
     <section className={styles.cardBack}>
       <h2>{strMeal}</h2>
       <h3>Instructions</h3>
-      <p>{this.shortenInstructions(strInstructions)}</p>
+      <p>{shortenInstructions(strInstructions)}</p>
       <h3>Ingredients</h3>
     </section>
   );
