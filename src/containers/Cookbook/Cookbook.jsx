@@ -4,8 +4,19 @@ import recipes from "../../data/recipes";
 import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 import CardList from "../../components/CardList/CardList";
 
+import { firestore } from '../../firebase';
+
 const Cookbook = () => {
   const [favourites, setFavourites] = useState(recipes.filter(recipe => recipe.isFav))
+
+  // 1. When toggleFav is run, let's try connect to our database to get our recipes
+  const getFavourites = () => {
+    // needs to get our favourites from firestore
+    firestore.collection("recipes").get().then((response) => {
+      console.log('Here is the response....');
+      console.log(response);
+    })
+  }
 
   const removeFromFav = (recipe) => {
     recipe.isFav = false;
@@ -13,7 +24,7 @@ const Cookbook = () => {
   };
 
   const contentJsx = favourites.length ? (
-    <CardList recipes={favourites} toggleFav={removeFromFav} />
+    <CardList recipes={favourites} toggleFav={getFavourites} />
   ) : (
     <FeedbackPanel
       header="No favourites"

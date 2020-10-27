@@ -6,9 +6,7 @@ Create a firestore databse and hook into the MealWorm React app so recipes can b
 
 ### Firestore integration
 
-- Go to your firebase project and click on the databse panel then create
-- Click to start in test mode (anyone can read & write)
-- Choose europe as the desired firestore location
+
 - Add firebase to the dependencies
 - Create the src/firebase.js with the correct config
 
