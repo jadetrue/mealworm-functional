@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Cookbook.module.scss";
 import recipes from "../../data/recipes";
 import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
@@ -7,24 +7,44 @@ import CardList from "../../components/CardList/CardList";
 import { firestore } from '../../firebase';
 
 const Cookbook = () => {
-  const [favourites, setFavourites] = useState(recipes.filter(recipe => recipe.isFav))
+  const [favourites, setFavourites] = useState([])
 
-  // 1. When toggleFav is run, let's try connect to our database to get our recipes
+  const removeFavourite = (recipe) => {
+    firestore.collection("recipes")
+             .doc(recipe.idMeal)
+             .delete()
+             .then(() => {
+                // HINT/TIP: Maybe we could do something here
+                //           to get the latest list of recipes????
+                //           .............
+                getFavourites();
+             })
+  }
+
   const getFavourites = () => {
-    // needs to get our favourites from firestore
-    firestore.collection("recipes").get().then((response) => {
-      console.log('Here is the response....');
-      console.log(response);
+    // 3. needs to get our favourites from firestore.. So we access
+    //    our collection called recipes, and we wait for the response
+    firestore.collection("recipes").get().then((collectionResponse) => {
+      
+      // 4. For each document, get the actual DATA, not the crazy metadata stuff
+      const documents = collectionResponse.docs.map(document => {
+        return document.data();
+      });
+      
+      // 5. Take the documents, and set them to our favourites so 
+      //    we can pass them down to CardList
+      setFavourites(documents);
     })
   }
 
-  const removeFromFav = (recipe) => {
-    recipe.isFav = false;
-    setFavourites(recipes.filter((recipe) => recipe.isFav));
-  };
+  // 1. Let's use useEffect to run something on create
+  useEffect(() => {
+    // 2. We need to get the favourites to show by default/on-open
+    getFavourites();
+  }, [])
 
   const contentJsx = favourites.length ? (
-    <CardList recipes={favourites} toggleFav={getFavourites} />
+    <CardList recipes={favourites} toggleFav={removeFavourite} />
   ) : (
     <FeedbackPanel
       header="No favourites"

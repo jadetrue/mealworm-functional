@@ -19,9 +19,21 @@ const App = () => {
   };
 
   const cleanRecipeData = (recipe) => {
+
+    // 1. Write something here which removes all of the 
+    //    unncessary prefixes from the properties
     return {
-      ...recipe,
+      idMeal: recipe.idMeal,
+      meal: recipe.strMeal,
+      drinkAlternative: recipe.strDrinkAlternate,
+      category: recipe.strCategory,
+      instructions: recipe.strInstructions,
       ingredients: getIngredients(recipe),
+      mealThumb: recipe.strMealThumb,
+      tags: recipe.strTags,
+      youtube: recipe.strYoutube,
+      source: recipe.strSource,
+      dateModified: recipe.dateModified,
       isFav: false,
     };
   };
