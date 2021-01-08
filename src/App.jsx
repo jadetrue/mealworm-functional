@@ -2,46 +2,23 @@ import React, { useState } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes";
-
-import library from "./data/fa-library";
+import { getRecipes } from './services/recipe.service';
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
 
-  const getIngredients = (recipe) => {
-    let ingredients = [];
-    Object.keys(recipe).forEach((key) => {
-      if (key.includes("Ingr") && recipe[key]) {
-        ingredients.push(recipe[key]);
-      }
-    });
-    return ingredients;
-  };
+  const updateRecipes = async (searchTerm) => {
+    // 1. Get the latest recipes from the API
+    const apiRecipes = await getRecipes(searchTerm);
 
-  const cleanRecipeData = (recipe) => {
-    return {
-      ...recipe,
-      ingredients: getIngredients(recipe),
-      isFav: false,
-    };
-  };
-
-  const grabRecipes = (searchTerm) => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
-      .then((res) => res.json())
-      .then((res) => {
-        const cleanRecipes = res.meals.map(cleanRecipeData);
-        setRecipes(cleanRecipes);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // 2. Update the recipes the user is looking at to match the searchTerm
+    setRecipes(apiRecipes);
   };
 
   return (
     <>
       <section className={styles.nav}>
-        <NavBar updateSearchText={grabRecipes} />
+        <NavBar updateSearchText={updateRecipes} />
       </section>
       <section className={styles.content}>
         <Routes recipes={recipes} />
@@ -49,5 +26,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;
