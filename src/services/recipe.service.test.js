@@ -3,7 +3,7 @@ import { mapRecipe } from './recipe.service';
 describe("recipe-service-tests", () => {
 
     // Valid Input
-    test('Test a valid recipe is mapped with two ingredients', () => {
+    test('If a valid recipe is mapped with two ingredients', () => {
         // Arrange 
         const validRecipe =         {
             "idMeal": "52957",
@@ -22,7 +22,7 @@ describe("recipe-service-tests", () => {
     })
 
     // Invalid Input..
-    test('Test a invalid recipe is mapped with 0 ingredients', () => {
+    test('If a invalid recipe is mapped with 0 ingredients', () => {
         // Arrange 
         const invalidRecipe = {
             "idMeal": "52957",
