@@ -18,7 +18,7 @@ describe("recipe-service-tests", () => {
         // Assert
         expect(result.ingredients.length).toBe(2);
         expect(result.isFav).toBe(false);
-        expect(result.idMeal).toBe("52957");
+        expect(result.id).toBe("52957");
     })
 
     // Invalid Input..

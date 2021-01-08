@@ -35,8 +35,18 @@ export const mapRecipe = (recipe) => {
 
     // 2. Return updated/mapped recipe 
     return {
-        ...recipe,
+        id: recipe.idMeal,
+        name: recipe.strMeal,
+        category: recipe.strCategory,
+        area: recipe.strArea,
+        instructions: recipe.strInstructions,
+        thumbnail: recipe.strMealThumb,
+        tags: recipe.strTags,
         ingredients: ingredients,
-        isFav: false,
-    };
+        source: recipe.strSource,
+        dateCreated: new Date().toUTCString(),
+        dateModified: null,
+        youtube: recipe.strYoutube,
+        isFav: false
+      };
 }

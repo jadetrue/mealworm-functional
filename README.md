@@ -7,9 +7,8 @@ Create a firestore databse and hook into the MealWorm React app so recipes can b
 
 ### Clean data ready for Database
 
-- Edit the existing cleanRecipe method in App.jsx to match the model for Recipe in MealWorm-api (https://mealworm-api.web.app/docs/)
+- Edit the existing cleanRecipe method in recipe.service.js to match the model for Recipe in MealWorm-api (https://mealworm-api.web.app/docs/)
 - Edit CardList, CardBack and CardFront components to use the newly named properties of the recipe objects (strMeal becomes name etc.)
-
 
 
 ## Challenge branch
