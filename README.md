@@ -12,8 +12,8 @@ Create a fetch that calls the catfacts.ninja API and displays the returned data 
 ### Extension
 
 - GET CREATIVE! Display the returned facts in a creative way that actually makes this interesting to the user
+- Create a service/API layer in your code
 - Allow the user to input how many they want to see at any one time
-
 
 ## Next branch
 
