@@ -11,6 +11,8 @@ Implement the logic to call themealdb api when a user types into the searchbar a
   - cleanRecipe will add isFav: false to each recipe
   - cleanRecipe will also create an ingredients array using getIngredients method (see challenge branch for referrence)
 - Remove original logic in App and Dashboard to filter data file recipes by searchText
+- NEW - Move the logic from App into a 'recipe service' as a means of creating different 'layers' in our application. 
+        This will also make our code more testable and modular. 
 
 ### N.B.
 
