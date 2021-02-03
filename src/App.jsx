@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes";
-import { getRecipes } from './services/recipe.service';
+import getRecipes from "./services/recipe.service";
 
 import library from "./data/fa-library";
 
