@@ -4,27 +4,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardFront = (props) => {
   const {
-    meal,
-    mealThumb,
-    youtube,
-    source,
-    area,
+    strMeal,
+    strMealThumb,
+    strYoutube,
+    strSource,
+    strArea,
   } = props.recipe;
 
   return (
     <div className={styles.cardFront}>
-      <img src={mealThumb} alt="Thai Green Curry" />
+      <img src={strMealThumb} alt="Thai Green Curry" />
       <section className={styles.recipeDetails}>
-        <h2>{meal}</h2>
+        <h2>{strMeal}</h2>
         <p>
           <FontAwesomeIcon icon="globe" />
-          <span>{area}</span>
+          <span>{strArea}</span>
         </p>
         <div className={styles.links}>
-          <a href={source} target="_blank" rel="noopener noreferrer">
+          <a href={strSource} target="_blank" rel="noopener noreferrer">
             Full recipe
           </a>
-          <a href={youtube} target="_blank" rel="noopener noreferrer">
+          <a href={strYoutube} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon
               icon={["fab", "youtube"]}
               className={styles.youtube}

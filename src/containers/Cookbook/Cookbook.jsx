@@ -1,50 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Cookbook.module.scss";
 import recipes from "../../data/recipes";
 import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 import CardList from "../../components/CardList/CardList";
 
-import { firestore } from '../../firebase';
-
 const Cookbook = () => {
-  const [favourites, setFavourites] = useState([])
+  const [favourites, setFavourites] = useState(recipes.filter(recipe => recipe.isFav))
 
-  const removeFavourite = (recipe) => {
-    firestore.collection("recipes")
-             .doc(recipe.idMeal)
-             .delete()
-             .then(() => {
-                // HINT/TIP: Maybe we could do something here
-                //           to get the latest list of recipes????
-                //           .............
-                getFavourites();
-             })
-  }
-
-  const getFavourites = () => {
-    // 3. needs to get our favourites from firestore.. So we access
-    //    our collection called recipes, and we wait for the response
-    firestore.collection("recipes").get().then((collectionResponse) => {
-      
-      // 4. For each document, get the actual DATA, not the crazy metadata stuff
-      const documents = collectionResponse.docs.map(document => {
-        return document.data();
-      });
-      
-      // 5. Take the documents, and set them to our favourites so 
-      //    we can pass them down to CardList
-      setFavourites(documents);
-    })
-  }
-
-  // 1. Let's use useEffect to run something on create
-  useEffect(() => {
-    // 2. We need to get the favourites to show by default/on-open
-    getFavourites();
-  }, [])
+  const removeFromFav = (recipe) => {
+    recipe.isFav = false;
+    setFavourites(recipes.filter((recipe) => recipe.isFav));
+  };
 
   const contentJsx = favourites.length ? (
-    <CardList recipes={favourites} toggleFav={removeFavourite} />
+    <CardList recipes={favourites} toggleFav={removeFromFav} />
   ) : (
     <FeedbackPanel
       header="No favourites"
