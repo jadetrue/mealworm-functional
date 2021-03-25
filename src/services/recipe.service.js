@@ -1,8 +1,4 @@
-// ****
-// Welcome to the Recipe Service. This code is "concerned" with recipes, and forms our API interaction layer.
-// this way any component doesn't need know where/how the recipes are retrieved, only that they are retrieved..
-// and this is the file/place for it :)
-// ****
+import { firestore } from '../firebase';
 
 const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php";
 
@@ -11,13 +7,30 @@ const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php";
  *       NOTE: We can leave this untested as it would ONLY test the mealdb API, which is not our responsibility
  * @param {string} searchTerm 
  */
-export const getRecipes = (searchTerm) => {
+export const searchRecipes = (searchTerm) => {
     return fetch(`${API_URL}?s=${searchTerm}`)
                 .then((res) => res.json())
                 .then((jsonResponse) => {
                     return jsonResponse.meals.map((meal) => mapRecipe(meal));
                 })
 }
+
+/**
+ * CRUD Operations for recipes
+ * @param {*} recipe 
+ */
+export const getRecipes = () => {
+    return firestore.collection('recipes').get();
+}
+
+export const deleteRecipe = (recipe) => {
+    return firestore.collection('recipes').doc(recipe.id).delete();
+}
+
+export const createRecipe = (recipe) => {
+    return firestore.collection('recipes').doc(recipe.id).set(recipe);
+}
+
 
 /**
  * Converts API responses into usable objects for our UI

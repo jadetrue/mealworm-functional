@@ -3,36 +3,28 @@ import styles from "./Cookbook.module.scss";
 import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 import CardList from "../../components/CardList/CardList";
 import { firestore } from "../../firebase";
+import { getRecipes, deleteRecipe } from '../../services/recipe.service';
 
 const Cookbook = () => {
   const [favourites, setFavourites] = useState([]);
 
-  const fetchCookbook = () => {
-    firestore
-      .collection("recipes")
-      .get()
-      .then((querySnapshot) => {
-        const favourites = querySnapshot.docs.map((doc) => doc.data());
-        setFavourites(favourites)
-      })
-      .catch((err) => console.error(err));
+  const getFavourites = () => {
+    getRecipes().then(response => {
+      const favourites = response.docs.map(doc => doc.data());
+      setFavourites(favourites)
+    })
   };
 
-  const removeFromFav = (recipe) => {
-    firestore
-      .collection("recipes")
-      .doc(recipe.id)
-      .delete()
-      .then(fetchCookbook)
-      .catch((err) => console.error(err));
+  const removeFav = (recipe) => {
+    deleteRecipe(recipe).then(() => getFavourites())
   };
 
   useEffect(() => {
-    fetchCookbook();
+    getFavourites();
   }, [])
 
   const contentJsx = favourites.length ? (
-    <CardList recipes={favourites} toggleFav={removeFromFav} />
+    <CardList recipes={favourites} toggleFav={removeFav} />
   ) : (
     <FeedbackPanel
       header="No favourites"
