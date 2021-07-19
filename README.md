@@ -5,8 +5,7 @@
 - Create a sandbox..
      - Option #1 - Go to codesandbox.io, create a new project, add 
                    @reach/router.
-     - Option #2 - npx create-react-app. Use "yarn" to install @reach/router.
-                   Note: npm will error due to unmet peer dependencies
+     - Option #2 - npx create-react-app. Install @reach/router.
      - Option #3 - npx create-react-app. Students should research         
                    'react-router-dom' and look the similarities/differences
                    with @reach/router. Then use 'react-router-dom' for challenge below..               
