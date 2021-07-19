@@ -6,7 +6,7 @@ Add the logic to remove Cards from your favourite collection in Cookbook
 
 ### React Sandbox
 
-Create a counter with a reusable button component. In one place the button should increase the count, in the other it should decrease the count (to be completed in react sandbox repo)
+Create a counter with a reusable button component. In one place the button should increase the count, in the other it should decrease the count (to be completed in react sandbox repo OR online IDE codesandbox.io)
 
 - Create a Counter component and a Button component
 - House two Button components in the Counter component (one will increment, one will decrement)
