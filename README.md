@@ -1,7 +1,7 @@
 # CHALLENGE NOTES
 
 - Test the feedback panel correctly displays the information passed in as props
-- Test the searchbar open/close functinality
+- Test the searchbar open/close functionality
 
 ## EXTENSION
 
