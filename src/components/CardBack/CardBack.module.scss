@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+.cardBack {
+    max-height: 400px;
+    max-width: 275px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
+    border: solid 2px rgb(70, 50, 111);
+    backface-visibility: hidden;
+    background-color: white;
+    margin: 20px;
+    padding: $base-spacing * 4;
+
+    h2 {
+        color: $primary-color;
+        font-size: 1.3rem;
+        margin-bottom: $base-spacing;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    h3 {
+        color: $primary-color;
+    }
+
+    p {
+        color: $secondary-text;
+        margin-bottom: $base-spacing * 2;
+    }
+}
