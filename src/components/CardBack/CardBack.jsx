@@ -11,7 +11,7 @@ export const CardBack = () => {
         <div className={styles.cardBack}>
             <h2>{title}</h2>
             <h3>Instructions</h3>
-            <p>{instructions.slice(0, 125) + `...`}</p>
+            <p>{instructions.slice(0, 199) + `...`}</p>
             <h3>Ingredients</h3>
             {ingredients.map((ingredient) => (
                 <p>{ingredient}</p>
@@ -19,3 +19,5 @@ export const CardBack = () => {
         </div>
     );
 };
+
+export default CardBack;

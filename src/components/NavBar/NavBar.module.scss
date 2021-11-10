@@ -1,0 +1,18 @@
+@import "../../variables.scss";
+
+.navBar {
+    height: 80px;
+    border-bottom: solid 2px rgb(70, 50, 111);
+    display: flex;
+    align-items: center;
+
+    img {
+        margin: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    h1 {
+        color: $primary-color;
+    }
+}
