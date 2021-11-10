@@ -1,7 +1,8 @@
 import React from "react";
+import {CardFront} from "./components/CardFront/CardFront";
 
 const App = () => {
-    return <div>Hi, my name is Jade</div>;
+    return <CardFront />;
 };
 
 export default App;
