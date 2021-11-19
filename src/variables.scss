@@ -24,7 +24,7 @@ $tertiary-text: rgb(199, 197, 197);
 
 $card-shadowing: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
 $card-hover-shadowing: 0 14px 28px rgba(0, 0, 0, 0.27),
-  0 10px 10px rgba(0, 0, 0, 0.3);
+    0 10px 10px rgba(0, 0, 0, 0.3);
 
 $NavBar-height-mb: 60px;
 $NavBar-height: 75px;
@@ -32,13 +32,28 @@ $NavBar-height: 75px;
 $border-rounding: 5px;
 
 %card {
-  max-height: 400px;
-  max-width: 275px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
-  border: solid 2px rgb(70, 50, 111);
-  backface-visibility: hidden;
-  background-color: white;
-  margin: 20px;
+    max-height: 400px;
+    max-width: 275px;
+    height: 100%;
+    width: 100%;
+    border-radius: $border-rounding;
+    box-shadow: $card-shadowing;
+    border: $primary-border;
+    backface-visibility: hidden;
+    background-color: white;
+    position: absolute;
+
+    &:hover {
+        box-shadow: $card-hover-shadowing;
+        border: $secondary-border;
+        cursor: pointer;
+
+        .recipeDetails {
+            border-color: $secondary-color;
+
+            h2 {
+                color: $primary-text;
+            }
+        }
+    }
 }
