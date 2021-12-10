@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cookbook = () => {
+export const Cookbook = () => {
     return <div>Cookbook</div>;
 };
 
