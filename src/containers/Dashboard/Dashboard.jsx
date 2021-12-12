@@ -11,14 +11,15 @@ const DashBoard = (props) => {
         recipe.isFav = !recipe.isFav;
     };
 
-    const contentJsx = recipes.length ? (
-        <CardList recipes={recipes} toggleFav={toggleFav} />
-    ) : (
-        <FeedbackPanel
-            header="No matches"
-            text="None of our recipes matched that search"
-        />
-    );
+    const contentJsx =
+        recipes && recipes.length ? (
+            <CardList recipes={recipes} toggleFav={toggleFav} />
+        ) : (
+            <FeedbackPanel
+                header="No matches"
+                text="None of our recipes matched that search"
+            />
+        );
 
     return <section className={styles.dashboard}>{contentJsx}</section>;
 };
