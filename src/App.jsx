@@ -6,7 +6,6 @@ import Routes from "./containers/Routes";
 import library from "./data/fa-library";
 
 const App = () => {
-    const [searchText, setSearchText] = useState("");
     const [recipes, setRecipes] = useState([]);
 
     const cleanRecipe = (recipe) => {
