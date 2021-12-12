@@ -1,16 +1,15 @@
 import React from "react";
 import styles from "./Dashboard.module.scss";
-import Card from "../../components/Card";
 import recipes from "../../data/recipes";
 
-const DashBoard = () => {
-  const getCardJsx = (recipe) => (
-    <div className={styles.card} key={recipe.idMeal}>
-      <Card recipe={recipe} />
-    </div>
-  );
+import CardList from "../../components/CardList/CardList";
 
-  return <section className={styles.cards}>{recipes.map(getCardJsx)}</section>;
+const DashBoard = () => {
+    return (
+        <section className={styles.dashBoard}>
+            <CardList recipes={recipes} />
+        </section>
+    );
 };
 
 export default DashBoard;

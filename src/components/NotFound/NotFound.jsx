@@ -1,15 +1,11 @@
 import React from "react";
-import styles from "./NotFound.module.scss";
+import FeedbackPanel from "../FeedbackPanel/FeedbackPanel";
 
 const NotFound = () => {
-  return (
-    <section className={styles.background}>
-      <div className={styles.feedback}>
-        <h2>Page not found</h2>
-        <p>Unfortunately we couldn't find that page</p>
-      </div>
-    </section>
-  );
+    const header = "Page not found";
+    const text = "Unfortunately we couldn't find that page";
+
+    return <FeedbackPanel header={header} text={text} />;
 };
 
 export default NotFound;

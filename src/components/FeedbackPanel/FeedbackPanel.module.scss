@@ -1,0 +1,37 @@
+@import "../../variables.scss";
+
+.background {
+    height: calc(100vh - 75px);
+    width: 100%;
+    background-image: linear-gradient(
+            rgba(202, 199, 199, 0.3),
+            rgba(202, 199, 199, 0.3)
+        ),
+        url("../../assets/fruits.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: red;
+    padding: $base-spacing * 4;
+
+    .feedback {
+        height: 200px;
+        width: 300px;
+        background-color: white;
+        border: $secondary-border;
+        border-radius: $border-rounding;
+
+        h2 {
+            color: $primary-color;
+            text-align: center;
+            margin-top: $base-spacing * 8;
+            font-size: 1.7rem;
+        }
+
+        p {
+            color: $secondary-text;
+            text-align: center;
+            padding: 2em;
+        }
+    }
+}
