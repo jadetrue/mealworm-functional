@@ -1,8 +1,16 @@
 import React from "react";
-import { Dashboard } from "./Dashboard";
+import Dashboard from "./Dashboard";
+import {shallow} from "enzyme";
+import recipesData from "../../data/recipes";
 
-describe("Dashboard tests", () => {
-  let component;
+describe("Not Found Tests", () => {
+    let component;
 
-  beforeEach(() => {});
+    beforeEach(() => {
+        component = shallow(<Dashboard recipes={recipesData} />);
+    });
+
+    it("Should render", () => {
+        expect(component).toBeTruthy();
+    });
 });

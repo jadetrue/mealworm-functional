@@ -1,19 +1,17 @@
 ﻿import React from "react";
-import { List } from "./List";
+import List from "./List";
+import {shallow} from "enzyme";
+import recipeData from "../../data/recipes";
 
-describe("List tests", () => {
-  let component;
+describe("Not Found Tests", () => {
+    let component;
 
-  beforeEach(() => {
-  })
-});
-import React from "react";
-import { List } from "./List";
+    beforeEach(() => {
+        const ingredients = recipeData[0].ingredients;
+        component = shallow(<List items={ingredients} />);
+    });
 
-describe("List tests", () => {
-  let component;
-
-  beforeEach(() => {
-    component =
-  })
+    it("Should render", () => {
+        expect(component).toBeTruthy();
+    });
 });

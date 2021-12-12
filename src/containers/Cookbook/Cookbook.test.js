@@ -1,10 +1,15 @@
 import React from "react";
-import { Cookbook } from "./Cookbook";
+import Cookbook from "./Cookbook";
+import {shallow} from "enzyme";
 
-describe("Cookbook tests", () => {
-  let component;
+describe("Not Found Tests", () => {
+    let component;
 
-  beforeEach(() => {
-    component =
-  })
+    beforeEach(() => {
+        component = shallow(<Cookbook />);
+    });
+
+    it("Should render", () => {
+        expect(component).toBeTruthy();
+    });
 });

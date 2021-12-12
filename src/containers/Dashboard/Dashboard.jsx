@@ -4,22 +4,23 @@ import CardList from "../../components/CardList";
 import FeedbackPanel from "../../components/FeedbackPanel";
 
 const DashBoard = (props) => {
-  const { recipes } = props;
+    const {recipes} = props;
 
-  const toggleFav = (recipe) => {
-    recipe.isFav = !recipe.isFav;
-  };
+    const toggleFav = (recipe) => {
+        recipe.isFav = !recipe.isFav;
+    };
 
-  const contentJsx = recipes.length ? (
-    <CardList recipes={recipes} toggleFav={toggleFav} />
-  ) : (
-    <FeedbackPanel
-      header="No recipes"
-      text="Type into the searchbar to find your desired meal"
-    />
-  );
+    const contentJsx =
+        recipes && recipes.length ? (
+            <CardList recipes={recipes} toggleFav={toggleFav} />
+        ) : (
+            <FeedbackPanel
+                header="No recipes"
+                text="Type into the searchbar to find your desired meal"
+            />
+        );
 
-  return <section className={styles.dashboard}>{contentJsx}</section>;
+    return <section className={styles.dashboard}>{contentJsx}</section>;
 };
 
 export default DashBoard;
