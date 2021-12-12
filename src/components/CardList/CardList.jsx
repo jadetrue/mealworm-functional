@@ -3,10 +3,10 @@ import Card from "../Card";
 import styles from "./CardList.module.scss";
 
 const CardList = (props) => {
-    const {recipes} = props;
+    const {recipes, isFav} = props;
     const getCardJsx = (recipe) => (
         <div className={styles.card} key={recipe.idMeal}>
-            <Card recipe={recipe} />
+            <Card recipe={recipe} isFav={isFav} />
         </div>
     );
     return (
